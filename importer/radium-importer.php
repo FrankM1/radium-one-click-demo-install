@@ -1,5 +1,4 @@
 <?php
-include '../config.php';
 
 /**
  * Class Radium_Theme_Importer
@@ -72,9 +71,9 @@ class Radium_Theme_Importer {
 
         self::$instance = $this;
 
-        $this->theme_options_file 	=  $framework->theme_includes_dir . '/demo-files/theme_options.txt';
-        $this->widgets 			=  $framework->theme_includes_dir . '/demo-files/widgets.json';
-        $this->content_demo 	=  $framework->theme_includes_dir . '/demo-files/content.xml';
+        $this->theme_options_file = '../demo-files/theme_options.txt';
+        $this->widgets            =  '../demo-files/widgets.json';
+        $this->content_demo       =  '../demo-files/content.xml';
 
         add_action( 'admin_menu', array($this, 'add_admin') );
 
@@ -204,7 +203,7 @@ class Radium_Theme_Importer {
 
         if ( !class_exists( 'WP_Import' ) ) {
 
-            $class_wp_import = $framework->theme_framework_dir . '/importer/wordpress-importer.php';
+            $class_wp_import = 'wordpress-importer.php';
 
             if ( file_exists( $class_wp_import ) )
                 require_once($class_wp_import);

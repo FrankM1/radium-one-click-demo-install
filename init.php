@@ -30,7 +30,12 @@ class Radium_Theme_Demo_Data_Importer extends Radium_Theme_Importer {
 		$main_menu = get_term_by('name', 'Main Menu', 'nav_menu');
 		$footer_menu = get_term_by('name', 'Main Menu', 'nav_menu');
 
-		set_theme_mod( 'nav_menu_locations' , array('top-menu' => $top_menu->term_id, 'primary' => $main_menu->term_id, 'footer-menu' => $footer_menu->term_id ) );
+		set_theme_mod( 'nav_menu_locations', array(
+                'top-menu' => $top_menu->term_id,
+                'primary' => $main_menu->term_id,
+                'footer-menu' => $footer_menu->term_id
+            )
+        );
 
 	}
 
