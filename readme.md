@@ -14,9 +14,7 @@ Add  `require get_template_directory() .'/radium-one-click-demo-install/init.php
 
 Copy the files generated above into `demo-files/`.
 
-Include `init.php` in your theme's `functions.php`
-
-Modify what menus need to be loaded in the `Radium_Theme_Demo_Data_Importer` class located in `init.php`
+Modify what menus need to be loaded in the `Radium_Theme_Demo_Data_Importer` class located in `init.php` as well as the theme options name to be used.
 
 A new menu should appear under
 
