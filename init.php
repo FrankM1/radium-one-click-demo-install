@@ -1,4 +1,5 @@
 <?php
+require_once(  dirname( __FILE__ ) .'/importer/radium-importer.php' ); //load admin theme data importer
 
 class Radium_Theme_Demo_Data_Importer extends Radium_Theme_Importer {
 
