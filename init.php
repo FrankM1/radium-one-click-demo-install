@@ -1,4 +1,7 @@
 <?php
+/**
+ * Version 0.0.2
+ */
 
 require_once(  dirname( __FILE__ ) .'/importer/radium-importer.php' ); //load admin theme data importer
 
@@ -7,7 +10,7 @@ class Radium_Theme_Demo_Data_Importer extends Radium_Theme_Importer {
     /**
      * Holds a copy of the object for easy reference.
      *
-     * @since 2.2.0
+     * @since 0.0.1
      *
      * @var object
      */
@@ -16,7 +19,7 @@ class Radium_Theme_Demo_Data_Importer extends Radium_Theme_Importer {
     /**
      * Set the key to be used to store theme options
      *
-     * @since 2.2.0
+     * @since 0.0.2
      *
      * @var object
      */
@@ -31,7 +34,7 @@ class Radium_Theme_Demo_Data_Importer extends Radium_Theme_Importer {
 	/**
 	 * Holds a copy of the widget settings 
 	 *
-	 * @since 2.2.0
+	 * @since 0.0.2
 	 *
 	 * @var object
 	 */
@@ -40,7 +43,7 @@ class Radium_Theme_Demo_Data_Importer extends Radium_Theme_Importer {
     /**
      * Constructor. Hooks all interactions to initialize the class.
      *
-     * @since 2.2.0
+     * @since 0.0.1
      */
     public function __construct() {
     
@@ -50,7 +53,12 @@ class Radium_Theme_Demo_Data_Importer extends Radium_Theme_Importer {
 		parent::__construct();
 
     }
-
+	
+	/**
+	 * Add menus
+	 *
+	 * @since 0.0.1
+	 */
 	public function set_demo_menus(){
 
 		// Menus to Import and assign - you can remove or add as many as you want
