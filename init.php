@@ -20,7 +20,7 @@ class Radium_Theme_Demo_Data_Importer extends Radium_Theme_Importer {
      *
      * @var object
      */
-    public $theme_option_name = 'my_theme_options'; //set theme options name here
+    public $theme_option_name = 'my_theme_options_name'; //set theme options name here
 		
 	public $theme_options_file_name = 'theme_options.txt';
 	

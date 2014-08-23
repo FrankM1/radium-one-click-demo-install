@@ -27,6 +27,6 @@ Click the import button
 
 That's it.
 
-Follow me on Twitter. @Frankmg1
+Follow me on Twitter. [twitter](http://twitter.com/Frankgm1 "@Frankgm1") 
 
 
