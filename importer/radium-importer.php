@@ -67,14 +67,12 @@ class Radium_Theme_Importer {
      */
     public function __construct() {
 
-        $framework = radium_framework();
-
         self::$instance = $this;
-
-        $this->theme_options_file = '../demo-files/theme_options.txt';
-        $this->widgets            =  '../demo-files/widgets.json';
-        $this->content_demo       =  '../demo-files/content.xml';
-
+        
+        $this->theme_options_file = $this->demo_files_path . $this->theme_options_file_name;
+        $this->widgets = $this->demo_files_path . $this->widgets_file_name;
+        $this->content_demo = $this->demo_files_path . $this->content_demo_file_name;
+		 
         add_action( 'admin_menu', array($this, 'add_admin') );
 
     }
@@ -98,8 +96,6 @@ class Radium_Theme_Importer {
      * @return [type] [description]
      */
     public function demo_installer() {
-
-        $framework = radium_framework();
 
         ?>
         <div id="icon-tools" class="icon32"><br></div>
@@ -127,8 +123,10 @@ class Radium_Theme_Importer {
         <br />
 
         <?php
-
-        if( 'demo-data' == $_REQUEST['action'] && check_admin_referer('radium-demo-code' , 'demononce')){
+		
+		$action = isset($_REQUEST['action']) ? $_REQUEST['action'] : '';
+		
+        if( 'demo-data' == $action && check_admin_referer('radium-demo-code' , 'demononce')){
 
             $this->set_demo_data( $this->content_demo );
 
@@ -177,8 +175,6 @@ class Radium_Theme_Importer {
 
     public function set_demo_data( $file ) {
 
-    	$framework = radium_framework();
-
 	    if ( !defined('WP_LOAD_IMPORTERS') ) define('WP_LOAD_IMPORTERS', true);
 
         require_once ABSPATH . 'wp-admin/includes/import.php';
@@ -188,7 +184,7 @@ class Radium_Theme_Importer {
         if ( !class_exists( 'WP_Importer' ) ) {
 
             $class_wp_importer = ABSPATH . 'wp-admin/includes/class-wp-importer.php';
-
+	
             if ( file_exists( $class_wp_importer ) ){
 
                 require_once($class_wp_importer);
@@ -203,9 +199,9 @@ class Radium_Theme_Importer {
 
         if ( !class_exists( 'WP_Import' ) ) {
 
-            $class_wp_import = 'wordpress-importer.php';
+            $class_wp_import = dirname( __FILE__ ) .'/wordpress-importer.php';
 
-            if ( file_exists( $class_wp_import ) )
+            if ( file_exists( $class_wp_import ) ) 
                 require_once($class_wp_import);
             else
                 $importer_error = true;
@@ -217,7 +213,9 @@ class Radium_Theme_Importer {
             die("Error on import");
 
         } else {
-
+			
+			var_export( $file );
+			
             if(!is_file( $file )){
 
                 echo "The XML file containing the dummy content is not available or could not be read .. You might want to try to set the file permission to chmod 755.<br/>If this doesn't work please use the Wordpress importer and import the XML file (should be located in your download .zip: Sample Content folder) manually ";
@@ -237,8 +235,6 @@ class Radium_Theme_Importer {
     public function set_demo_menus() {}
 
     public function set_demo_theme_options( $file ) {
-
-    	$framework = radium_framework();
 
     	// File exists?
 		if ( ! file_exists( $file ) ) {
@@ -267,7 +263,7 @@ class Radium_Theme_Importer {
 		// Hook before import
 		$data = apply_filters( 'radium_theme_import_theme_options', $data );
 
-		update_option($framework->theme_option_name, $data);
+		update_option($this->theme_option_name, $data);
 
     }
 
@@ -336,7 +332,7 @@ class Radium_Theme_Importer {
 
     	// Import the widget data
     	// Make results available for display on import/export page
-    	radium_framework()->widget_import_results = $this->import_widgets( $data );
+    	$this->widget_import_results = $this->import_widgets( $data );
 
     }
 
