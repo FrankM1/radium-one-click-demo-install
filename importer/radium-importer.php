@@ -100,10 +100,9 @@ class Radium_Theme_Importer {
 			<div class="wrap">
 				<h2><span class="dashicons dashicons-update" style="line-height: 29px;"></span> Import Demo Data</h2>
 				<div style="background-color: #F5FAFD; margin:10px 0;padding: 10px;color: #0C518F;border: 3px solid #CAE0F3; claer:both; width:90%; line-height:18px;">
-					<p class="tie_message_hint">Importing demo data (post, pages, images, theme settings, ...) is the easiest way to setup your theme. It will
-						allow you to quickly edit everything instead of creating content from scratch. When you import the data following things will happen:</p>
+					<p class="tie_message_hint">Importing demo data (post, pages, images, theme settings, ...) is the easiest way to setup your theme. It will allow you to quickly edit everything instead of creating content from scratch. When you import the data following things will happen:</p>
 
-					<ul style="padding-left: 20px;list-style-position: inside;list-style-type: square;}">
+					<ul style="padding-left: 20px; list-style-position: inside; list-style-type: square;">
 						<li>No existing posts, pages, categories, images, custom post types or any other data will be deleted or modified .</li>
 						<li>No WordPress settings will be modified .</li>
 						<li>Posts, pages, some images, some widgets and menus will get imported .</li>
@@ -112,7 +111,7 @@ class Radium_Theme_Importer {
 					</ul>
 				</div>
 
-				<div style="background-color: #F5FAFD; margin:10px 0;padding: 10px;color: #0C518F;border: 3px solid #CAE0F3; claer:both; width:90%; line-height:18px;">
+				<div style="background-color: #F5FAFD; margin:10px 0; padding: 10px; color: #0C518F; border: 3px solid #CAE0F3; claer:both; width:90%; line-height:18px;">
 					<p class="tie_message_hint">Before you begin, make sure all the required plugins are activated.</p>
 				</div>
 				<form method="post" class="js-one-click-import-form">
