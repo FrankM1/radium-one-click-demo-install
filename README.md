@@ -20,7 +20,7 @@ Copy the files generated above into `demo-files/`.
 
 Modify what menus need to be loaded in the `Radium_Theme_Demo_Data_Importer` class located in `examle.php` as well as the theme options name to be used.
 
-A new menu should appear under ***Appearance -> Import Demo Data***.
+A new menu should appear under ***Appearance &raquo; Import Demo Data***.
 
 Click the import button.
 
