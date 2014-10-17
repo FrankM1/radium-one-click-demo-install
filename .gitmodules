@@ -1,0 +1,3 @@
+[submodule "importer/wordpress-importer"]
+	path = importer/wordpress-importer
+	url = https://github.com/wp-plugins/wordpress-importer.git
