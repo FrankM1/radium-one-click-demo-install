@@ -2,6 +2,15 @@
     "name": "primozcigler/wordpress-one-click-demo-install",
     "description": "Once Click Demo Content Install for WordPress.",
     "license": "MIT",
+    "repositories":[
+        {
+            "type":"composer",
+            "url":"http://wpackagist.org"
+        }
+    ],
+    "require": {
+        "wpackagist-plugin/wordpress-importer": "dev-trunk"
+    },
     "authors": [
         {
             "name": "Frank Gitonga"

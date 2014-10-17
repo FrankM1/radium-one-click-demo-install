@@ -210,7 +210,7 @@ class Radium_Theme_Importer {
 
 		if ( !class_exists( 'WP_Import' ) ) {
 
-			$class_wp_import = dirname( __FILE__ ) .'/wordpress-importer/wordpress-importer.php';
+			$class_wp_import = dirname( __FILE__ ) .'/wp-content/plugins/wordpress-importer/wordpress-importer.php';
 
 			if ( file_exists( $class_wp_import ) )
 				require_once($class_wp_import);
