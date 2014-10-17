@@ -96,31 +96,43 @@ class Radium_Theme_Importer {
 	 * @return [type] [description]
 	 */
 	public function demo_installer() {
-
 		?>
-		<div id="icon-tools" class="icon32"><br></div>
-		<h2>Import Demo Data</h2>
-		<div style="background-color: #F5FAFD; margin:10px 0;padding: 10px;color: #0C518F;border: 3px solid #CAE0F3; claer:both; width:90%; line-height:18px;">
-			<p class="tie_message_hint">Importing demo data (post, pages, images, theme settings, ...) is the easiest way to setup your theme. It will
-			allow you to quickly edit everything instead of creating content from scratch. When you import the data following things will happen:</p>
+			<div class="wrap">
+				<h2><span class="dashicons dashicons-update" style="line-height: 29px;"></span> Import Demo Data</h2>
+				<div style="background-color: #F5FAFD; margin:10px 0;padding: 10px;color: #0C518F;border: 3px solid #CAE0F3; claer:both; width:90%; line-height:18px;">
+					<p class="tie_message_hint">Importing demo data (post, pages, images, theme settings, ...) is the easiest way to setup your theme. It will
+						allow you to quickly edit everything instead of creating content from scratch. When you import the data following things will happen:</p>
 
-			  <ul style="padding-left: 20px;list-style-position: inside;list-style-type: square;}">
-				  <li>No existing posts, pages, categories, images, custom post types or any other data will be deleted or modified .</li>
-				  <li>No WordPress settings will be modified .</li>
-				  <li>Posts, pages, some images, some widgets and menus will get imported .</li>
-				  <li>Images will be downloaded from our server, these images are copyrighted and are for demo use only .</li>
-				  <li>Please click import only once and wait, it can take a couple of minutes</li>
-			  </ul>
-		 </div>
+					<ul style="padding-left: 20px;list-style-position: inside;list-style-type: square;}">
+						<li>No existing posts, pages, categories, images, custom post types or any other data will be deleted or modified .</li>
+						<li>No WordPress settings will be modified .</li>
+						<li>Posts, pages, some images, some widgets and menus will get imported .</li>
+						<li>Images will be downloaded from our server, these images are copyrighted and are for demo use only .</li>
+						<li>Please click import only once and wait, it can take a couple of minutes</li>
+					</ul>
+				</div>
 
-		 <div style="background-color: #F5FAFD; margin:10px 0;padding: 10px;color: #0C518F;border: 3px solid #CAE0F3; claer:both; width:90%; line-height:18px;"><p class="tie_message_hint">Before you begin, make sure all the required plugins are activated.</p></div>
-		<form method="post">
-			<input type="hidden" name="demononce" value="<?php echo wp_create_nonce('radium-demo-code'); ?>" />
-			<input name="reset" class="panel-save button-primary" type="submit" value="Import Demo Data" />
-			<input type="hidden" name="action" value="demo-data" />
-		</form>
-		<br />
-		<br />
+				<div style="background-color: #F5FAFD; margin:10px 0;padding: 10px;color: #0C518F;border: 3px solid #CAE0F3; claer:both; width:90%; line-height:18px;">
+					<p class="tie_message_hint">Before you begin, make sure all the required plugins are activated.</p>
+				</div>
+				<form method="post" class="js-one-click-import-form">
+					<input type="hidden" name="demononce" value="<?php echo wp_create_nonce('radium-demo-code'); ?>" />
+					<input name="reset" class="panel-save button-primary" type="submit" value="Import Demo Data" />
+					<input type="hidden" name="action" value="demo-data" />
+				</form>
+
+				<script>
+					jQuery( function ( $ ) {
+						$( '.js-one-click-import-form' ).on( 'submit', function () {
+							$( this ).append( '<p style="font-width: bold; font-size: 1.5em;"><span class="spinner" style="display: inline-block; float: none;"></span> Importing now, please wait!</p>' );
+							$( this ).find( '.panel-save' ).attr( 'disabled', true );
+						} );
+					} );
+				</script>
+
+				<br />
+				<br />
+			</div>
 
 		<?php
 
