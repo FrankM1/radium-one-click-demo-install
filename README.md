@@ -1,7 +1,7 @@
 One Click Demo Install for WordPress Developers
 ==========================
 
-*Note: original script written by (https://github.com/FrankM1/radium-one-click-demo-install)[FrankM1].*
+*Note: original script written by https://github.com/FrankM1/radium-one-click-demo-install.*
 
 This library works by importing wordpress content, widgets  and theme options with just one click.
 
