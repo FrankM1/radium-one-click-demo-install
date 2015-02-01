@@ -27,6 +27,6 @@ That's it.
 
 Follow me on Twitter. [twitter](http://twitter.com/Frankgm1 "@Frankgm1") 
 
-##Redux Extension now available
+##Redux Framework Extension now available
 https://github.com/Webcreations907/WBC-Importer-extension 
 thanks to Webcreations907
