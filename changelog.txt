@@ -1,0 +1,7 @@
+Version 0.0.3
+ * Added composer
+ * filters for demo file paths
+ * Check if already imported
+ 
+Version 0.0.2
+ * Initial Release 
