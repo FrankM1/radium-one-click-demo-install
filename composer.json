@@ -1,0 +1,17 @@
+{
+    "name": "primozcigler/wordpress-one-click-demo-install",
+    "description": "Once Click Demo Content Install for WordPress.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Frank Gitonga"
+        },
+        {
+            "name": "Primoz Cigler",
+            "email": "primoz@proteusnet.com"
+        }
+    ],
+    "autoload": {
+        "files": ["importer/radium-importer.php"]
+    }
+}
