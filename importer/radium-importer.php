@@ -409,6 +409,10 @@
 
 					//option tree import
 					$data = $this->optiontree_decode($data);
+					
+					update_option( ot_options_id(), $data );
+					
+					$this->flag_as_imported['options'] = true;
 
 				} else {
 
@@ -694,11 +698,14 @@
 	     *
 	     * @access    public
 	     * @since     0.0.3
+	     * @updated   0.0.3.1
 	     */
 	    public function optiontree_decode( $value ) {
-
+			
 			$func = 'base64' . '_decode';
-			return $func( $value );
+			$prepared_data = maybe_unserialize( $func( $value ) );
+			
+			return $prepared_data;
 
 	    }
 
