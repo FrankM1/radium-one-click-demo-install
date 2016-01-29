@@ -274,7 +274,7 @@
 	     *
 	     * @return null
 	     */
-	    public function process_imports( $content = true, $options = true, $options = true, $widgets = true) {
+	    public function process_imports( $content = true, $options = true, $widgets = true) {
 
 			if ( $content && !empty( $this->content_demo ) && is_file( $this->content_demo ) ) {
 				$this->set_demo_data( $this->content_demo );
