@@ -384,10 +384,6 @@ class WXR_Parser_Regex {
 	var $terms = array();
 	var $base_url = '';
 
-	function WXR_Parser_Regex() {
-		$this->__construct();
-	}
-
 	function __construct() {
 		$this->has_gzip = is_callable( 'gzopen' );
 	}
@@ -462,11 +458,10 @@ class WXR_Parser_Regex {
 	}
 
 	function get_tag( $string, $tag ) {
-		global $wpdb;
 		preg_match( "|<$tag.*?>(.*?)</$tag>|is", $string, $return );
 		if ( isset( $return[1] ) ) {
 			$return = preg_replace( '|^<!\[CDATA\[(.*)\]\]>$|s', '$1', $return[1] );
-			$return = $wpdb->escape( trim( $return ) );
+			$return = esc_sql( trim( $return ) );
 		} else {
 			$return = '';
 		}

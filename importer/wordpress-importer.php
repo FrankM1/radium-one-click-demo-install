@@ -868,21 +868,35 @@ class WP_Import extends WP_Importer {
 			return new WP_Error( 'upload_dir_error', $upload['error'] );
 
 		// fetch the remote url and write it to the placeholder file
-		$headers = wp_get_http( $url, $upload['file'] );
+		$response = wp_remote_get( $url, array(
+			'stream' => true,
+			'filename' => $upload['file']
+		) );
 
 		// request failed
-		if ( ! $headers ) {
+		if ( is_wp_error( $response ) ) {
 			@unlink( $upload['file'] );
-			return new WP_Error( 'import_file_error', __('Remote server did not respond', 'radium') );
+			return $response;
 		}
 
+		$code = (int) wp_remote_retrieve_response_code( $response );
+
 		// make sure the fetch was successful
-		if ( $headers['response'] != '200' ) {
+		if ( $code !== 200 ) {
 			@unlink( $upload['file'] );
-			return new WP_Error( 'import_file_error', sprintf( __('Remote server returned error response %1$d %2$s', 'radium'), esc_html($headers['response']), get_status_header_desc($headers['response']) ) );
+			return new WP_Error(
+				'import_file_error',
+				sprintf(
+					__('Remote server returned %1$d %2$s for %3$s', 'radium'),
+					$code,
+					get_status_header_desc( $code ),
+					$url
+				)
+			);
 		}
 
 		$filesize = filesize( $upload['file'] );
+		$headers = wp_remote_retrieve_headers( $response );
 
 		if ( isset( $headers['content-length'] ) && $filesize != $headers['content-length'] ) {
 			@unlink( $upload['file'] );
@@ -904,8 +918,9 @@ class WP_Import extends WP_Importer {
 		$this->url_remap[$url] = $upload['url'];
 		$this->url_remap[$post['guid']] = $upload['url']; // r13735, really needed?
 		// keep track of the destination if the remote url is redirected somewhere else
-		if ( isset($headers['x-final-location']) && $headers['x-final-location'] != $url )
+		if ( isset($headers['x-final-location']) && $headers['x-final-location'] != $url ){
 			$this->url_remap[$headers['x-final-location']] = $upload['url'];
+		}
 
 		return $upload;
 	}
@@ -1073,7 +1088,7 @@ class WP_Import extends WP_Importer {
 	 * Added to http_request_timeout filter to force timeout at 60 seconds during import
 	 * @return int 60
 	 */
-	function bump_request_timeout() {
+	function bump_request_timeout($val) {
 		return 60;
 	}
 

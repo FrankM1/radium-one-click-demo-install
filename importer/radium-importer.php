@@ -274,7 +274,7 @@
 	     *
 	     * @return null
 	     */
-	    public function process_imports( $content = true, $options = true, $options = true, $widgets = true) {
+	    public function process_imports( $content = true, $options = true, $widgets = true) {
 
 			if ( $content && !empty( $this->content_demo ) && is_file( $this->content_demo ) ) {
 				$this->set_demo_data( $this->content_demo );
@@ -433,7 +433,7 @@
 					$this->flag_as_imported['options'] = true;
 				}
 
-	      		do_action( 'radium_importer_after_theme_options_import', $this->active_import, $this->demo_files_path );
+	      		do_action( 'radium_importer_after_theme_options_import', $this->demo_files_path );
 
       		} else {
 
