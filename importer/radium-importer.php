@@ -267,7 +267,6 @@
 	     *
 	     * @params $content
 	     * @params $options
-	     * @params $options
 	     * @params $widgets
 	     *
 	     * @since 0.0.3
